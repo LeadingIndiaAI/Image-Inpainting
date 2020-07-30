@@ -56,7 +56,7 @@ body {
   letter-spacing: 2px;
   font-weight: bold;
   color: #ffc872;
-  background-color: #242424;
+  background-color: transparent;
   margin-bottom: 50px;
 }
 #submitBtn:hover {
@@ -64,7 +64,7 @@ body {
 }
 
 #submitBtn.active {
-  background-color: #ffc872;
+  background-color: transparent;
   color: #242424;
 }
 
@@ -88,7 +88,7 @@ label:hover {
 }
 
 label.active {
-  background-color: #ffc872;
+  background-color: transparent;
   color: #242424;
 }
 
