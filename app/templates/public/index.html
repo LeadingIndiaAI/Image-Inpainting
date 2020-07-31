@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Image</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
-</head>
-<body>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" id="file" hidden />
-        <label for="file" id="selector">Select File</label>
-        
-    <!-- <input type="submit" value="Upload Image" name="submit" > -->
-        <!-- <input type="submit" name="submit" hidden/> -->
-        <button type="submit" name="submit" id="submitBtn" hidden>Upload Image</button>
-        <!-- <label for="submit" id="submitBtn" hidden>Upload Image</label> -->
-    </form>
-  <script src="{{ url_for('static', filename='js/run.js') }}"></script>
-</body>
-</html>
+{% extends 'public/templates/main_template.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+       <a href="/upload"><button>Click</button></a>
+    </div>
+{% endblock %}
