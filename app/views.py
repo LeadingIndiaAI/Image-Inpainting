@@ -7,7 +7,11 @@ import os
 #CHANGE THE FOLLOWING PATH !!
 app.config['IMAGE_UPLOADS'] = '/Users/Bharat/Desktop/Flask Webapp/uploads'
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/')
+def home_page():
+    return render_template('public/index.html')
+
+@app.route('/upload', methods = ['GET', 'POST'])
 def index():
 
     if request.method == 'POST':
@@ -23,4 +27,4 @@ def index():
 
             return redirect(request.url)
              
-    return render_template('public/index.html')
+    return render_template('public/upload_image.html')

@@ -1,0 +1,27 @@
+{% extends 'public/templates/main_template.html' %}
+
+{% block title %}
+Upload Image
+{% endblock %}
+
+{%block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="container" id="uploadImgDiv">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" id="file" hidden />
+        <label for="file" id="selector">Select File</label>
+
+        <!-- <input type="submit" value="Upload Image" name="submit" > -->
+        <!-- <input type="submit" name="submit" hidden/> -->
+        <button type="submit" name="submit" id="submitBtn" hidden>Upload Image</button>
+        <!-- <label for="submit" id="submitBtn" hidden>Upload Image</label> -->
+    </form>
+</div>
+{% endblock %}
+
+{% block custom_js %}
+<script src="{{ url_for('static', filename='js/run.js') }}"></script>
+{% endblock %}
