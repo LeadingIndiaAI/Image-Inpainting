@@ -30,18 +30,21 @@ form {
   margin-bottom: 500px;
 } */
 
+
 #selector {
   margin-bottom: 50px;
 }
 
 #submitBtn {
   padding: 16px 48px;
-  border: 3px solid #ffc872;
+  /* border: 3px solid #ffc872; */
+  border: 3px solid white;
   border-radius: 48px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
-  color: #ffc872;
+  /* color: #ffc872; */
+  color: white;
   background-color: transparent;
   margin-bottom: 50px;
 }
@@ -59,13 +62,16 @@ form {
 }
 
 label {
+  margin-top: 2rem;
   padding: 16px 48px;
-  border: 3px solid #ffc872;
+  /* border: 3px solid #ffc872; */
+  border: 3px solid white;
   border-radius: 48px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
-  color: #ffc872;
+  /* color: #ffc872; */
+  color: white;
   margin-bottom: 50px;
 }
 
