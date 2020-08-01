@@ -20,6 +20,16 @@
     background-color: white;
 }
 
+#gobtn:focus {
+    color: black;
+    background-color: white;
+}
+
+#gobtn:active {
+    color: black;
+    background-color: white;
+}
+
 main {
     margin-bottom: 3rem;
 }
