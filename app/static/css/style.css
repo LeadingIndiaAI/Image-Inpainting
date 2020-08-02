@@ -62,6 +62,22 @@ form {
 }
 
 label {
+  /* margin-top: 2rem; */
+  /* padding: 16px 48px; */
+  /* border: 3px solid #ffc872; */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  /* color: #ffc872; */
+  color: white;
+  margin-bottom: 20px;
+}
+
+label:hover {
+  transform: scale(1.1);
+}
+
+#selector {
   margin-top: 2rem;
   padding: 16px 48px;
   /* border: 3px solid #ffc872; */
@@ -75,20 +91,20 @@ label {
   margin-bottom: 50px;
 }
 
-label:hover {
-  transform: scale(1.04);
+#selector:hover {
+  transform: scale(1.1);
 }
 
-label.active {
+#selector.active {
   background-color: transparent;
   color: #242424;
 }
 
-label span {
+#selector span {
   font-weight: normal;
 }
 
-label.image {
+#selector.image {
   /* width: 100%;
   height: 100%;  */
   padding: 0px;
@@ -96,7 +112,7 @@ label.image {
   overflow: hidden;
 }
 
-label.image img {
+#selector.image img {
   width: 100%;
   height: 100%;
   /* object-fit: cover; */

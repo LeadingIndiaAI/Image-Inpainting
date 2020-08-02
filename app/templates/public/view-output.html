@@ -11,12 +11,15 @@ Upload Image
 {% block content %}
 <div class="container" id="uploadImgDiv">
     <div class="row">
+        {% if option == zero %}
         <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="display-1">HELLO</div>
         </div>
+        {% else %}
         <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="display-1">HELLOZ</div>
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

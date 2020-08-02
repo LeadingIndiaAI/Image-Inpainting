@@ -31,6 +31,8 @@ def index():
 
             print('Image uploaded')
 
+            option = request.form['options']
+            print(option)
             ###Processing Code Here For The GAN Module
             #import script here for the GAN Module, do the processing and save it in a folder app/processed
             ##with the same filename + '_output'
@@ -39,7 +41,8 @@ def index():
             # return redirect('/view_output')
 
             showoutput = True 
-            return redirect('/view_output')
+            
+            return render_template('/public/view-output.html', option = option)
              
     return render_template('public/upload_image.html')
 

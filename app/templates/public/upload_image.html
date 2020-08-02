@@ -5,22 +5,31 @@ Upload Image
 {% endblock %}
 
 {%block custom_css %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
 {% endblock %}
 
 {% block content %}
-    <div class="container" id="uploadImgDiv">
-        <!-- removed action below -->
-        <form  method="post" enctype="multipart/form-data"> 
-            <input type="file" name="image" id="file" hidden />
-            <label for="file" id="selector">Select File</label>
+<div class="container" id="uploadImgDiv">
+    <!-- removed action below -->
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" id="file" hidden />
+        <label for="file" id="selector">Select File</label>
 
-            <!-- <input type="submit" value="Upload Image" name="submit" > -->
-            <!-- <input type="submit" name="submit" hidden/> -->
-            <button type="submit" name="submit" id="submitBtn" hidden>Upload Image</button>
-            <!-- <label for="submit" id="submitBtn" hidden>Upload Image</label> -->
-        </form>
-    </div>
+        <!-- <input type="submit" value="Upload Image" name="submit" > -->
+        <!-- <input type="submit" name="submit" hidden/> -->
+
+        <label class="radio inline" for="gan">
+            <input type="radio" id="gan" name="options" value="zero" checked>   GAN
+        </label>
+
+        <label class="radio inline" for="autoed">
+            <input type="radio" id="autoed" name="options" value="one">   Auto Encoder/Decoder
+        </label>
+
+        <button type="submit" name="submit" id="submitBtn" hidden>Upload Image</button>
+        <!-- <label for="submit" id="submitBtn" hidden>Upload Image</label> -->
+    </form>
+</div>
 {% endblock content %}
 
 {% block backbtn %}
@@ -28,7 +37,8 @@ Upload Image
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="/"><button type="button" class="btn btn-outline-secondary float-left ml-12" id="gobtn">Go Back</button></a>
+                <a href="/"><button type="button" class="btn btn-outline-secondary float-left ml-12" id="gobtn">Go
+                        Back</button></a>
             </div>
         </div>
     </div>
