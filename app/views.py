@@ -29,6 +29,11 @@ def index():
 
             print('Image uploaded')
 
+            ###Processing Code Here For The GAN Module
+            #import script here for the GAN Module, do the processing and save it in a folder app/processed
+            ##with the same filename + '_output'
+            ##provide the image source to the next render_template where the image will be displayed
+
             return redirect(request.url)
              
     return render_template('public/upload_image.html')
