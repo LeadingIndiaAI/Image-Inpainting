@@ -84,12 +84,12 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="col-md-8 col-sm-6 col-xs-6">
                         <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved
                         </p>
                     </div>
 
-                    <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-6 col-xs-6">
                         <ul class="social-icons">
                             <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -104,8 +104,7 @@
         <!-- HERE -->
     </div>
 
-    {% block custom_js %}
-    {% endblock %}
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -117,6 +116,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    {% block custom_js %}
+    {% endblock %}
 </body>
 
 </html>

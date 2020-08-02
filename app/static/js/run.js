@@ -38,6 +38,18 @@ var loader = function(e) {
 let fileInput = document.getElementById("file");
 fileInput.addEventListener("change",loader); 
 
+$('#submitBtn').click(function() {
+  // $("body").css("cursor", "wait");
+  // $("button").css("cursor", "wait");
+  // $('button').prop('disabled', true);
+  // $('label').prop('disabled', true);
+  // $('label').prop('disabled', true);
+  $('body').css('pointer-events', 'none');
+  // $('button').css('pointer-events', 'none');
+  $("html").css("cursor", "wait");
+  // $('button').prop('disabled', true);
+});
+
 // var loader = function(e) {
 //   let file = e.target.files;
 //   //console.log(file[0].type);

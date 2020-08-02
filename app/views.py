@@ -4,6 +4,7 @@ from flask import render_template, request, redirect
 
 import os
 
+import time
 
 # Create two constant. They direct to the app root folder and uploads folder
 APP_ROOT = os.path.dirname(os.path.abspath(__file__)) #to get the current working directory
@@ -33,7 +34,12 @@ def index():
             #import script here for the GAN Module, do the processing and save it in a folder app/processed
             ##with the same filename + '_output'
             ##provide the image source to the next render_template where the image will be displayed
-
-            return redirect(request.url)
+            time.sleep(5)   #simulate processing
+            return redirect('/view_output')
              
     return render_template('public/upload_image.html')
+
+
+@app.route('/view_output', methods=['GET', 'POST'])
+def view_output():
+    return render_template('public/view-output.html')
