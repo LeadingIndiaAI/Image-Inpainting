@@ -20,8 +20,9 @@ Upload Image
     </div>
 </div>
 <div class="container-fluid">
+    <div class="col-12">
     <div class="row">
-        <div class="col-6" id="inputImgDiv">
+        <div class="col-6 align-items-center content" id="inputImgDiv">
             <!-- <img src="{{ url_for('static', filename='uploads/img/abc.png') }}" alt="NAH" srcset=""> -->
             <img src=" {{ url_for('static', filename='uploads/img/' +zfilename) }} " alt="Error" srcset="">
         </div>
@@ -30,6 +31,7 @@ Upload Image
             <!-- <img src="{{url1}}" alt="error" srcset=""> -->
             <img src=" {{ url_for('static', filename='uploads/img/' +zfilename_mask) }} " alt="Error" srcset="">
         </div>
+    </div>
     </div>
 
 </div>
