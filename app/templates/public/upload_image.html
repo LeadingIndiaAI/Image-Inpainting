@@ -12,18 +12,27 @@ Upload Image
 <div class="container" id="uploadImgDiv">
     <!-- removed action below -->
     <form method="post" enctype="multipart/form-data">
+
+
         <input type="file" name="image" id="file" hidden />
-        <label for="file" id="selector">Select File</label>
+        <label for="file" id="selector">Select Image</label>
+
+
+        <input type="file" name="image" id="mask" hidden />
+        <label for="mask" id="selector2">Select Mask</label>
+
+
+
 
         <!-- <input type="submit" value="Upload Image" name="submit" > -->
         <!-- <input type="submit" name="submit" hidden/> -->
 
         <label class="radio inline" for="gan">
-            <input type="radio" id="gan" name="options" value="zero" checked>   GAN
+            <input type="radio" id="gan" name="options" value="zero" checked> GAN
         </label>
 
         <label class="radio inline" for="autoed">
-            <input type="radio" id="autoed" name="options" value="one">   Auto Encoder/Decoder
+            <input type="radio" id="autoed" name="options" value="one"> Auto Encoder/Decoder
         </label>
 
         <button type="submit" name="submit" id="submitBtn" hidden>Upload Image</button>

@@ -8,7 +8,7 @@ import time
 
 # Create two constant. They direct to the app root folder and uploads folder
 APP_ROOT = os.path.dirname(os.path.abspath(__file__)) #to get the current working directory
-UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/uploads')
 
 app.config['IMAGE_UPLOADS'] = UPLOAD_FOLDER
 
@@ -24,12 +24,31 @@ def index():
         
         if request.files:
 
-            image = request.files['image']
+            # if os.path.exists(UPLOAD_FOLDER+'/img/input.png'):
+            #     os.remove(UPLOAD_FOLDER+'/img/input.png')
+            # if os.path.exists(UPLOAD_FOLDER+'/mask/input_mask.png'):
+            #     os.remove(UPLOAD_FOLDER+'/mask/input_mask.png')
 
+            # image = request.files['image']
+            image = request.files.getlist('image')
+            
             # print(image)
-            image.save(os.path.join(app.config['IMAGE_UPLOADS'], image.filename))
+            # print(image.filename)
+            zfilename = image[0].filename
+            zfilename_mask = image[1].filename 
+            
+            # print(image[0].filename)
+            # print(image[1].filename)
+            print()
+            print(zfilename_mask)
+            print()
+            # for single file
+            # image.save(os.path.join(app.config['IMAGE_UPLOADS'], image.filename))
 
-            print('Image uploaded')
+            image[0].save(os.path.join(app.config['IMAGE_UPLOADS'], 'img', zfilename))
+            image[1].save(os.path.join(app.config['IMAGE_UPLOADS'], 'mask', zfilename_mask))
+
+            #print('Image uploaded')
 
             option = request.form['options']
             print(option)
@@ -37,13 +56,19 @@ def index():
             #import script here for the GAN Module, do the processing and save it in a folder app/processed
             ##with the same filename + '_output'
             ##provide the image source to the next render_template where the image will be displayed
-            time.sleep(5)   #simulate processing
+            # time.sleep(5)   #simulate processing
             # return redirect('/view_output')
-
+            input_path = os.path.join(app.config['IMAGE_UPLOADS'], 'img', zfilename.replace('.',' '))  #input image path
+            output_path = os.path.join(app.config['IMAGE_UPLOADS'], 'mask', zfilename_mask.replace('.',' '))  #output image path
             showoutput = True 
-            
-            return render_template('/public/view-output.html', option = option)
-             
+            #print(input_path)
+            #print(output_path)
+            time.sleep(2)
+
+            # url1 = "{{ url_for('static', filename='uploads/img/abc.png') }}"
+            return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask)
+            # return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask, check = check)
+
     return render_template('public/upload_image.html')
 
 

@@ -5,22 +5,33 @@ Upload Image
 {% endblock %}
 
 {%block custom_css %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
 {% endblock %}
 
 {% block content %}
-<div class="container" id="uploadImgDiv">
+<div class="container">
     <div class="row">
-        {% if option == zero %}
         <div class="col-md-6 col-sm-6 col-xs-6">
-            <div class="display-1">HELLO</div>
+            <div class="display-4 mt-3">INPUT</div>
         </div>
-        {% else %}
         <div class="col-md-6 col-sm-6 col-xs-6">
-            <div class="display-1">HELLOZ</div>
+            <div class="display-4 mt-3">OUTPUT</div>
         </div>
-        {% endif %}
     </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6" id="inputImgDiv">
+            <!-- <img src="{{ url_for('static', filename='uploads/img/abc.png') }}" alt="NAH" srcset=""> -->
+            <img src=" {{ url_for('static', filename='uploads/img/' +zfilename) }} " alt="Error" srcset="">
+        </div>
+        <div class="col-6" id="outputImgDiv">
+            <!-- <img src="{{  url_for('static',filename='uploads/mask/{{zfilename_mask}}')  }}"  alt="Error"> -->
+            <!-- <img src="{{url1}}" alt="error" srcset=""> -->
+            <img src=" {{ url_for('static', filename='uploads/img/' +zfilename_mask) }} " alt="Error" srcset="">
+        </div>
+    </div>
+
 </div>
 {% endblock %}
 
@@ -28,7 +39,8 @@ Upload Image
 <div class="container">
     <div class="row">
         <div class="col">
-            <a href="/upload"><button type="button" class="btn btn-outline-secondary float-left ml-12" id="gobtn">Go Back</button></a>
+            <a href="/upload"><button type="button" class="btn btn-outline-secondary float-left ml-12" id="gobtn">Go
+                    Back</button></a>
         </div>
     </div>
 </div>
