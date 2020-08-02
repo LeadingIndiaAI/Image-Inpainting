@@ -19,6 +19,7 @@ def home_page():
 @app.route('/upload', methods = ['GET', 'POST'])
 def index():
 
+    showoutput = False
     if request.method == 'POST':
         
         if request.files:
@@ -35,6 +36,9 @@ def index():
             ##with the same filename + '_output'
             ##provide the image source to the next render_template where the image will be displayed
             time.sleep(5)   #simulate processing
+            # return redirect('/view_output')
+
+            showoutput = True 
             return redirect('/view_output')
              
     return render_template('public/upload_image.html')

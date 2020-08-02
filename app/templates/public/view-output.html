@@ -1,0 +1,35 @@
+{% extends 'public/templates/main_template.html' %}
+
+{% block title %}
+Upload Image
+{% endblock %}
+
+{%block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="container" id="uploadImgDiv">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="display-1">HELLO</div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="display-1">HELLOZ</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block backbtn %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a href="/upload"><button type="button" class="btn btn-outline-secondary float-left ml-12" id="gobtn">Go Back</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block custom_js %}
+<script src="{{ url_for('static', filename='js/run.js') }}"></script>
+{% endblock %}
