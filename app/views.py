@@ -4,8 +4,12 @@ from flask import render_template, request, redirect
 
 import os
 
-#CHANGE THE FOLLOWING PATH !!
-app.config['IMAGE_UPLOADS'] = '/Users/Bharat/Desktop/Flask Webapp/uploads'
+
+# Create two constant. They direct to the app root folder and uploads folder
+APP_ROOT = os.path.dirname(os.path.abspath(__file__)) #to get the current working directory
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
+
+app.config['IMAGE_UPLOADS'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home_page():
