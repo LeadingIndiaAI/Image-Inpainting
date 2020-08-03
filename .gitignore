@@ -3,6 +3,14 @@
 .DS_Store
 **/.DS_Store
 app/__pycache__/
+<<<<<<< HEAD
 **/env
 **/env
 env
+=======
+__pycache__/
+env/
+**/env/
+env 
+__pycache__
+>>>>>>> adding_autoed
