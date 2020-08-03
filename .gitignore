@@ -4,3 +4,5 @@
 **/.DS_Store
 app/__pycache__/
 *env/
+**env/
+env
