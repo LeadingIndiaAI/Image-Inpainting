@@ -5,3 +5,6 @@
 app/__pycache__/
 __pycache__/
 env/
+**/env/
+env 
+__pycache__
