@@ -21,6 +21,11 @@ print(output_path)
 input_path = os.path.normpath(cur_path+'/../static/input/')
 print(input_path)
 
+## CHANGE HERE
+static_path = os.path.normpath(cur_path+'/../static/')
+print(static_path)
+##
+
 json_file = open(cur_path+'/model.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
@@ -63,11 +68,13 @@ def imginp(masked_image, mask):
     inp = [mi_r.reshape((1,) + mi_r.shape), m_r.reshape((1,) + m_r.shape)]
     val = loaded_model.predict(inp)
     pred_img = val.reshape(val.shape[1:])
-    fimg = Image.fromarray(pred_img, 'RGB')
+    # fimg = Image.fromarray(pred_img, 'RGB')
+    fimg = Image.fromarray((pred_img * 255).astype(np.uint8), 'RGB')
 
     clean_input_dir()
     # return fimg.save(output_path+"image.jpg", 'JPEG', quality=80)
-    return fimg.save(os.path.join(output_path,"image.jpg"), 'JPEG', quality=80)
+    # CHANGEHERE
+    return fimg.save(os.path.join(static_path,"image.jpg"), 'JPEG', quality=80)
 
 
 

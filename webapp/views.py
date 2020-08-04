@@ -8,11 +8,15 @@ import time
 
 import webapp.modelRunner.runner
 
+from shutil import copyfile
+
 # Create two constant. They direct to the app root folder and uploads folder
 APP_ROOT = os.path.dirname(os.path.abspath(__file__)) #to get the current working directory
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/uploads')
+STATIC_FOLDER = os.path.join(APP_ROOT, 'static/')
 
 app.config['IMAGE_UPLOADS'] = UPLOAD_FOLDER
+app.config['CACHED_OUTPUT'] = STATIC_FOLDER
 
 @app.route('/')
 def home_page():
@@ -70,8 +74,18 @@ def index():
             webapp.modelRunner.runner.imginp(input_path, mask_path)
             # time.sleep(2)
 
+            outputfilename = 'image.jpg'
+
+            #CHANGE HERE
+            output_to_move = os.path.join(app.config['CACHED_OUTPUT'], 'image.jpg')
+            moved_file = os.path.join(app.config['IMAGE_UPLOADS'], 'output', zfilename.split('.')[0] + '.' + outputfilename.split('.')[1])
+            # os.system('cp '+output_to_move+' '+ moved_file)
+            # print(output_to_move)
+            # print(moved_file)
+            print('cp '+output_to_move+' '+ moved_file)
+            copyfile(output_to_move, moved_file)
             # url1 = "{{ url_for('static', filename='uploads/img/abc.png') }}"
-            return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask)
+            return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask, outputfilename = outputfilename)
             # return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask, check = check)
 
     return render_template('public/upload_image.html')

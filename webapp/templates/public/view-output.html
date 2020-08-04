@@ -29,9 +29,11 @@ Upload Image
         <div class="col-6" id="outputImgDiv">
             <!-- <img src="{{  url_for('static',filename='uploads/mask/{{zfilename_mask}}')  }}"  alt="Error"> -->
             <!-- <img src="{{url1}}" alt="error" srcset=""> -->
-            <img src=" {{ url_for('static', filename='uploads/output/image.jpg') }} " alt="Error" srcset="">
+
+            <!-- ERROR HERE -->
+            <img src=" {{ url_for('static', filename=outputfilename) }} " alt="Error" srcset="">
+            <!-- CHECK ABOVE -->
         </div>
-    </div>
     </div>
 
 </div>
