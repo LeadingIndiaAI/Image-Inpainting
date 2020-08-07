@@ -10,6 +10,9 @@ import webapp.modelRunner.runner
 
 from shutil import copyfile
 
+#model GAN
+import webapp.ganmodel
+
 # Create two constant. They direct to the app root folder and uploads folder
 APP_ROOT = os.path.dirname(os.path.abspath(__file__)) #to get the current working directory
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/uploads')
@@ -71,21 +74,27 @@ def index():
             #print(output_path)
 
             ####
-            webapp.modelRunner.runner.imginp(input_path, mask_path)
-            # time.sleep(2)
+            #ganmodel
+            if option == "zero":
+                webapp.ganmodel.result(input_path, mask_path)#('static/uploads/img/'+zfilename, 'static/uploads/mask/'+zfilename_mask)
+                zoutputfilename = 'uploads/output/' + zfilename
 
-            outputfilename = 'image.jpg'
+            if option == "one":
+                webapp.modelRunner.runner.imginp(input_path, mask_path)
+                # time.sleep(2)
 
-            #CHANGE HERE
-            output_to_move = os.path.join(app.config['CACHED_OUTPUT'], 'image.jpg')
-            moved_file = os.path.join(app.config['IMAGE_UPLOADS'], 'output', zfilename.split('.')[0] + '.' + outputfilename.split('.')[1])
-            # os.system('cp '+output_to_move+' '+ moved_file)
-            # print(output_to_move)
-            # print(moved_file)
-            print('cp '+output_to_move+' '+ moved_file)
-            copyfile(output_to_move, moved_file)
-            
-            zoutputfilename = 'uploads/output/' + zfilename.split('.')[0] + '.' + outputfilename.split('.')[1];
+                outputfilename = 'image.jpg'
+
+                #CHANGE HERE
+                output_to_move = os.path.join(app.config['CACHED_OUTPUT'], 'image.jpg')
+                moved_file = os.path.join(app.config['IMAGE_UPLOADS'], 'output', zfilename.split('.')[0] + '.' + outputfilename.split('.')[1])
+                # os.system('cp '+output_to_move+' '+ moved_file)
+                # print(output_to_move)
+                # print(moved_file)
+                print('cp '+output_to_move+' '+ moved_file)
+                copyfile(output_to_move, moved_file)
+                
+                zoutputfilename = 'uploads/output/' + zfilename.split('.')[0] + '.' + outputfilename.split('.')[1]
             # url1 = "{{ url_for('static', filename='uploads/img/abc.png') }}"
             return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask, zoutputfilename = zoutputfilename)
             # return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask, check = check)
