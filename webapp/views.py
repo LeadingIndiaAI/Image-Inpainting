@@ -84,8 +84,10 @@ def index():
             # print(moved_file)
             print('cp '+output_to_move+' '+ moved_file)
             copyfile(output_to_move, moved_file)
+            
+            zoutputfilename = 'uploads/output/' + zfilename.split('.')[0] + '.' + outputfilename.split('.')[1];
             # url1 = "{{ url_for('static', filename='uploads/img/abc.png') }}"
-            return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask, outputfilename = outputfilename)
+            return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask, zoutputfilename = zoutputfilename)
             # return render_template('/public/view-output.html', option = option, zfilename = zfilename, zfilename_mask = zfilename_mask, check = check)
 
     return render_template('public/upload_image.html')
