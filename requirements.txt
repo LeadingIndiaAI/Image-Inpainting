@@ -48,7 +48,7 @@ pycparser==2.20
 pyparsing==2.4.7
 python-dateutil==2.8.1
 python-jwt==3.2.6
-PyYAML==5.1.2
+PyYAML==5.4
 requests==2.22.0
 requests-oauthlib==1.3.0
 rsa==4.0
